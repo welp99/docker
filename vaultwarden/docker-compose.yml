@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  vaultwarden:
+    image: vaultwarden/server:latest
+    deploy:
+      replicas: 1
+    volumes:
+      - /mnt/storage/vw-data:/data
+    ports:
+      - 8130:80
+      - 8543:443
+
+

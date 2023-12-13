@@ -1,0 +1,28 @@
+version: "2.3"
+
+networks:
+  frontend:
+    external: true
+
+services:
+  ntfy:
+    image: binwiederhier/ntfy
+    container_name: ntfy
+    command:
+      - serve
+    environment:
+      - TZ=UTC+1   # optional: set desired timezone
+    volumes:
+      - /mnt/storage/ntfy/cache:/var/cache/ntfy
+      - /mnt/storage/ntfy:/etc/ntfy
+    ports:
+      - 9001:80
+    healthcheck: # optional: remember to adapt the host:port to your environment
+        test: ["CMD-SHELL", "wget -q --tries=1 http://localhost:80/v1/health -O - | grep -Eo '\"healthy\"\\s*:\\s*true' || exit 1"]
+        interval: 60s
+        timeout: 10s
+        retries: 3
+        start_period: 40s
+    restart: unless-stopped
+    networks:
+      - frontend

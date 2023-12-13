@@ -1,0 +1,14 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:latest
+    container_name: welpdb
+    environment:
+      MYSQL_ROOT_PASSWORD: VkaPr.Emtx%JJ[fgEscv&D6i(_NOfH]
+      MYSQL_DATABASE: welpdb
+      MYSQL_USER: welp
+      MYSQL_PASSWORD: g0r0ebt972
+    ports:
+      - "3333:3306"
+    volumes:
+      - /mnt/storage/mysql_data_welpdb:/var/lib/mysql

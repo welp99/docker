@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  pingvin:
+    image: stonith404/pingvin-share:v0.16.0
+    deploy:
+      replicas: 1
+    volumes:
+    - "./pg-data:/opt/app/backend/data"
+    - "./pg-data/images:/opt/app/frontend/public/img"
+    ports:
+      - 3100:3000
+

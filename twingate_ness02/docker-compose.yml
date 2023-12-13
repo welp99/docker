@@ -1,0 +1,20 @@
+# -- (Optional) When using a custom network
+networks:
+  frontend:
+    external: true
+services:
+  twingate_ness01:
+    container_name: twingate_ness02
+    image: twingate/connector:latest
+    environment:
+      - TWINGATE_NETWORK=networkwelp
+      - TWINGATE_ACCESS_TOKEN=eyJhbGciOiJFUzI1NiIsImtpZCI6IkpKeUYtV1pqNzg3aGloNlJyQVBldW4yTHlTNTR4TTZ0NnFTLVd4QnMzZUkiLCJ0eXAiOiJEQVQifQ.eyJudCI6IkFOIiwiYWlkIjoiMTYzNzk1IiwiZGlkIjoiOTY5NjMzIiwianRpIjoiYWJlNDAzZjItODA1OC00ZDkxLWJkZWItOTNiNTIwMzczMGQ1IiwiaXNzIjoidHdpbmdhdGUiLCJhdWQiOiJuZXR3b3Jrd2VscCIsImV4cCI6MTY5NzQ5MTM5NiwiaWF0IjoxNjk3NDg3Nzk2LCJ2ZXIiOiI0IiwidGlkIjoiNTU0NTUiLCJybnciOjE2OTc0ODgwOTYsInJuZXRpZCI6IjY5MDkxIn0.jdohwvrY87E83LAcZMzTVZBYYimIaW5TdnT35XhBsUPO8i8p8wBEWj6aPN_uJmeFrCcHpZIFdoBI2CeKtdre9w
+      - TWINGATE_REFRESH_TOKEN=4nE4tj3Vvx1G2aAYSKk5Hrz8k6WgTKi22CxkweOS-6_dgBUxp5OC1JbO2GT8-H04BQAvbU3VP5tuiHbRqqOFC6HBJqGsTkR2U8WxOmosdChrTeMg-urSi3s7hxX7MwiIG-e73A
+      # -- (Optional) Change loglevel
+      # - TWINGATE_LOG_LEVEL=3
+      # -- (Optional) Add custom DNS Server
+      # - TWINGATE_DNS=192.168.1.34:53
+    # -- (Optional) When using a custom network
+    networks:
+       - frontend
+    restart: unless-stopped

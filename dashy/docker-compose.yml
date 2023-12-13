@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  my-dashboard:
+    image: lissy93/dashy:latest
+    deploy:
+      replicas: 1
+    ports:
+      - 8777:80
+    volumes:
+      - /mnt/storage/dashy:/app/public
+      - /mnt/storage/item-icons:/app/public/item-icons
+
+
+
+
+

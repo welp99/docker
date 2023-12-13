@@ -1,0 +1,28 @@
+$TTL 2d
+
+$ORIGIN welpnetwork.com.
+
+@               IN              SOA         ns.welpnetwork.com.    info.welpnetwork.com.   (
+                                            20231016    ;   serial
+                                            12h         ;   refresh
+                                            15m         ;   retry
+                                            3w          ;   expire
+                                            2h          ;   minimum ttl
+)
+
+                IN              NS          ns.welpnetwork.com.
+
+ns              IN              A           192.168.1.34
+
+
+; -- add dns records below 
+
+
+truenas         IN              A           192.168.1.13
+node2        IN              A           192.168.1.14
+pfsense         IN              A           192.168.1.17
+node1           IN              A           192.168.1.34
+*.node1         IN              A           192.168.1.34
+test		IN		A	    10.10.10.3
+
+;
